@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wikipedia:Source Verification Request – SVR-2026-04-0731</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Linux+Libertine&family=Noto+Sans:wght@400;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #202122;
+    background: #f8f9fa;
+  }
+
+  /* Wikipedia-style top bar */
+  .wiki-topbar {
+    background: #fff;
+    border-bottom: 1px solid #a7d7f9;
+    padding: 8px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .wiki-logo {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .wiki-logo svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .wiki-topbar-text {
+    font-family: 'Linux Libertine', 'Georgia', serif;
+    font-size: 18px;
+    color: #000;
+    letter-spacing: -0.2px;
+  }
+
+  .wiki-topbar-text span {
+    font-size: 12px;
+    color: #54595d;
+    display: block;
+    font-family: 'Noto Sans', sans-serif;
+    letter-spacing: 0;
+  }
+
+  /* Tabs */
+  .wiki-tabs {
+    background: #fff;
+    border-bottom: 1px solid #a2a9b1;
+    padding: 0 20px;
+    display: flex;
+    gap: 0;
+  }
+
+  .wiki-tab {
+    padding: 8px 16px;
+    font-size: 13px;
+    color: #0645ad;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    text-decoration: none;
+  }
+
+  .wiki-tab.active {
+    color: #202122;
+    border-bottom: 2px solid #3366cc;
+    font-weight: bold;
+  }
+
+  /* Content area */
+  .wiki-content {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px 24px 60px;
+    background: #fff;
+    min-height: 100vh;
+    border-left: 1px solid #a2a9b1;
+    border-right: 1px solid #a2a9b1;
+  }
+
+  h1.wiki-title {
+    font-family: 'Linux Libertine', 'Georgia', serif;
+    font-size: 28px;
+    font-weight: normal;
+    border-bottom: 1px solid #a2a9b1;
+    padding-bottom: 4px;
+    margin-bottom: 16px;
+    color: #000;
+  }
+
+  h1.wiki-title .ns {
+    color: #54595d;
+  }
+
+  /* Notice box */
+  .notice-box {
+    background: #fef6e7;
+    border: 1px solid #fc3;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    border-radius: 2px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .notice-box .icon {
+    font-size: 22px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .notice-box p {
+    margin: 0;
+    font-size: 13.5px;
+  }
+
+  .notice-box strong {
+    color: #705000;
+  }
+
+  /* Info table */
+  .info-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 13.5px;
+  }
+
+  .info-table th {
+    text-align: left;
+    background: #eaecf0;
+    padding: 8px 12px;
+    border: 1px solid #a2a9b1;
+    font-weight: bold;
+    width: 200px;
+    vertical-align: top;
+  }
+
+  .info-table td {
+    padding: 8px 12px;
+    border: 1px solid #a2a9b1;
+    vertical-align: top;
+  }
+
+  .info-table td.status-pending {
+    color: #b32424;
+    font-weight: bold;
+  }
+
+  /* Section headings */
+  h2.wiki-heading {
+    font-family: 'Linux Libertine', 'Georgia', serif;
+    font-size: 22px;
+    font-weight: normal;
+    border-bottom: 1px solid #a2a9b1;
+    padding-bottom: 2px;
+    margin: 28px 0 12px;
+    color: #000;
+  }
+
+  h3.wiki-subheading {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 18px 0 8px;
+  }
+
+  p {
+    margin-bottom: 12px;
+    line-height: 1.65;
+  }
+
+  a {
+    color: #0645ad;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  code, .mono {
+    font-family: 'Courier New', monospace;
+    background: #f8f9fa;
+    padding: 1px 4px;
+    border-radius: 2px;
+    font-size: 13px;
+  }
+
+  /* Quote block */
+  .quote-block {
+    border-left: 3px solid #a2a9b1;
+    padding: 8px 16px;
+    margin: 12px 0 16px 12px;
+    background: #f8f9fa;
+    font-style: italic;
+    color: #54595d;
+  }
+
+  .quote-block .attribution {
+    font-style: normal;
+    font-size: 12.5px;
+    margin-top: 6px;
+    color: #72777d;
+  }
+
+  /* Checklist */
+  .checklist {
+    margin: 12px 0 16px 20px;
+    list-style: none;
+    padding: 0;
+  }
+
+  .checklist li {
+    padding: 4px 0;
+    position: relative;
+    padding-left: 24px;
+  }
+
+  .checklist li::before {
+    content: "☐";
+    position: absolute;
+    left: 0;
+    color: #72777d;
+  }
+
+  /* Red warning */
+  .deadline-warning {
+    background: #fee7e6;
+    border: 1px solid #b32424;
+    padding: 12px 16px;
+    margin: 20px 0;
+    border-radius: 2px;
+    font-size: 13.5px;
+  }
+
+  .deadline-warning strong {
+    color: #b32424;
+  }
+
+  /* Signature area */
+  .sig-area {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid #eaecf0;
+    font-size: 13px;
+    color: #54595d;
+  }
+
+  .sig-area .bot-sig {
+    font-style: italic;
+  }
+
+  .sig-area .timestamp {
+    color: #72777d;
+    font-size: 12px;
+  }
+
+  /* Categories */
+  .wiki-categories {
+    margin-top: 40px;
+    padding-top: 12px;
+    border-top: 1px solid #a2a9b1;
+    font-size: 12px;
+    color: #72777d;
+  }
+
+  .wiki-categories a {
+    color: #0645ad;
+    font-size: 12px;
+  }
+
+  /* Footer */
+  .wiki-footer {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    font-size: 11.5px;
+    color: #72777d;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  /* Collapsible policy box */
+  .policy-ref {
+    background: #f8f9fa;
+    border: 1px solid #c8ccd1;
+    padding: 12px 16px;
+    margin: 16px 0;
+    border-radius: 2px;
+    font-size: 12.5px;
+    color: #54595d;
+  }
+
+  .policy-ref .policy-title {
+    font-weight: bold;
+    color: #202122;
+    margin-bottom: 4px;
+  }
+
+  /* Mobile tweaks */
+  @media (max-width: 600px) {
+    .wiki-content { padding: 16px 14px 40px; }
+    h1.wiki-title { font-size: 22px; }
+    .info-table th { width: 130px; font-size: 12.5px; }
+    .info-table td { font-size: 12.5px; }
+    .wiki-tabs { overflow-x: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Top bar -->
+<div class="wiki-topbar">
+  <div class="wiki-logo">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="48" fill="none" stroke="#000" stroke-width="2"/>
+      <text x="50" y="62" text-anchor="middle" font-family="'Linux Libertine', Georgia, serif" font-size="38" fill="#000">W</text>
+      <text x="50" y="82" text-anchor="middle" font-family="'Noto Sans', sans-serif" font-size="10" fill="#54595d">SVR</text>
+    </svg>
+  </div>
+  <div class="wiki-topbar-text">
+    Wikipedia
+    <span>Source Verification Program</span>
+  </div>
+</div>
+
+<!-- Tabs -->
+<div class="wiki-tabs">
+  <a class="wiki-tab active">Verification request</a>
+  <a class="wiki-tab">Talk</a>
+  <a class="wiki-tab">View history</a>
+  <a class="wiki-tab">Compliance log</a>
+</div>
+
+<!-- Main content -->
+<div class="wiki-content">
+
+  <h1 class="wiki-title"><span class="ns">Wikipedia:</span>Source Verification Request – SVR-2026-04-0731</h1>
+
+  <!-- Warning banner -->
+  <div class="notice-box">
+    <div class="icon">⚠️</div>
+    <div>
+      <p><strong>Action required.</strong> You have been identified as a <strong>primary cited source</strong> in a Wikipedia article currently under review by the <a href="#">Biographies of Living Persons &amp; Entities (BLP/E) Verification Task Force</a>. Under the <a href="#">Source Accountability &amp; Integrity Policy (SAIP) §4.7.2</a>, cited individuals must confirm the accuracy of attributed statements within the prescribed compliance window.</p>
+    </div>
+  </div>
+
+  <!-- Case info table -->
+  <table class="info-table">
+    <tr>
+      <th>Case number</th>
+      <td><code>SVR-2026-04-0731</code></td>
+    </tr>
+    <tr>
+      <th>Article under review</th>
+      <td><a href="#">Olive (cat)</a> — <span style="color:#72777d;">rev. 1,298,447,203</span></td>
+    </tr>
+    <tr>
+      <th>Article category</th>
+      <td>Biographies of Living Entities (Feline)</td>
+    </tr>
+    <tr>
+      <th>Cited individual</th>
+      <td><strong>Carla Zastrow</strong> (identified as: maternal grandmother of subject)</td>
+    </tr>
+    <tr>
+      <th>Attribution context</th>
+      <td>Section 4: "Public Perception" — direct quotation attributed to cited individual</td>
+    </tr>
+    <tr>
+      <th>Date flagged</th>
+      <td>31 March 2026, 22:14 UTC</td>
+    </tr>
+    <tr>
+      <th>Compliance deadline</th>
+      <td class="status-pending">3 April 2026, 23:59 UTC</td>
+    </tr>
+    <tr>
+      <th>Status</th>
+      <td class="status-pending">⏳ PENDING — Awaiting source response</td>
+    </tr>
+  </table>
+
+  <!-- Background -->
+  <h2 class="wiki-heading">Background</h2>
+
+  <p>On 31 March 2026, automated content integrity bot <strong>ClueBot NG IV</strong> flagged article <a href="#">Olive (cat)</a> for review under the expanded <a href="#">Source Accountability &amp; Integrity Policy</a>, which was adopted in January 2026 to strengthen Wikipedia's commitment to verifiability in articles about living entities. The article contains a direct quotation attributed to <strong>Carla Zastrow</strong> (designated role: "Olive's grandmother") in the "Public Perception" section:</p>
+
+  <div class="quote-block">
+    "Olive is a sweet, gentle soul whose main purpose in life is to support and cuddle with Alexi. If you give Olive the time and space to analyze who you are, she will 'love on' you as well. At the same time, you can see Olive's natural predator instincts kick in when her little dilapidated mouse comes out to play. She faithfully brings it back for you to throw one more time. She is patient with her brother who has some naughty habits. Everyone needs an Olive in their life."
+    <div class="attribution">— Carla Zastrow, as cited in <i>Olive (cat)</i>, Wikipedia</div>
+  </div>
+
+  <p>This quotation was added to the article on or about 31 March 2026. Because the article has experienced <strong>unusually high traffic</strong> (flagged at 4,200+ pageviews in 48 hours — far exceeding the median for articles in <a href="#">WikiProject Cats</a>), it has been escalated from routine review to <strong>Priority Level 2 (Amber)</strong> verification.</p>
+
+  <div class="policy-ref">
+    <div class="policy-title">📋 Policy reference: SAIP §4.7.2 — Cited Person Obligations</div>
+    <p>"Where a direct quotation is attributed to a named, living individual in any article receiving more than 2,000 pageviews within a 72-hour window, the Verification Task Force may issue a Source Verification Request (SVR) requiring the cited individual to confirm, amend, or retract the attributed statement. Failure to respond within the prescribed compliance window may result in removal of the quotation, tagging of the article for deletion review, or referral to the Arbitration Committee."</p>
+  </div>
+
+  <!-- What is required -->
+  <h2 class="wiki-heading">Compliance requirements</h2>
+
+  <p>To resolve this SVR, the cited individual (<strong>Carla Zastrow</strong>) must provide the following within the compliance window:</p>
+
+  <ul class="checklist">
+    <li><strong>Signed digital or physical affidavit</strong> confirming the attributed quotation is accurate and was provided voluntarily. Acceptable formats: scanned PDF, photograph of signed document, or e-signature via DocuSign or equivalent. The affidavit must include the statement: <em>"I, [full name], confirm that the quotation attributed to me in the Wikipedia article 'Olive (cat)' is accurate and was provided of my own free will."</em></li>
+    <li><strong>Photographic evidence of interaction with the subject.</strong> At minimum, one (1) photograph clearly depicting the cited individual in the presence of the article's subject (Olive). This is required under SAIP §4.7.2(c) to establish the source's "direct and demonstrable familiarity" with the entity described.</li>
+    <li><strong>Brief biographical statement</strong> (2–3 sentences) establishing the cited individual's qualifications to comment on the subject. This may include, but is not limited to: duration of relationship with subject, frequency of interaction, and any relevant expertise in feline behavior or temperament assessment.</li>
+    <li><strong>Confirmation of familial designation.</strong> The article refers to the cited individual as the subject's "grandmother." Please confirm this designation is accurate and accepted by all relevant parties, or suggest an alternative term for editorial consideration.</li>
+  </ul>
+
+  <!-- Deadline -->
+  <div class="deadline-warning">
+    <strong>⚠️ Compliance deadline: 3 April 2026, 23:59 UTC.</strong> If no response is received by this date, the quotation will be removed, the article will be tagged with <code>{{unreliable sources}}</code>, and the matter may be escalated to the <a href="#">Arbitration Committee</a> for further review. Additionally, the cited individual may be added to the <strong>Unresponsive Sources Registry</strong>, which could affect the admissibility of their statements in future Wikipedia articles.
+  </div>
+
+  <h2 class="wiki-heading">How to respond</h2>
+
+  <p>Responses may be submitted via any of the following methods:</p>
+
+  <p><strong>Option A:</strong> Reply directly to this notice by editing the <a href="#">Talk page</a> (requires a Wikipedia account).</p>
+
+  <p><strong>Option B:</strong> Send the required materials via email to <code>svr-compliance@wikimedia.org</code>, referencing case number <code>SVR-2026-04-0731</code> in the subject line.</p>
+
+  <p><strong>Option C:</strong> Forward materials to the article's primary editor (identified in article history) for relay to the Verification Task Force.</p>
+
+  <h3 class="wiki-subheading">A note on the "grandmother" designation</h3>
+
+  <p>We note that the familial relationship described in the article ("Olive's grandmother") is non-traditional in the context of Wikipedia's <a href="#">Manual of Style for kinship terminology</a>, which was drafted primarily for human subjects. The Verification Task Force acknowledges that interspecies familial designations are an evolving area of editorial policy and appreciates the cited individual's patience as guidelines are refined. Nevertheless, verification of the claimed relationship is required for compliance purposes.</p>
+
+  <!-- Signature -->
+  <div class="sig-area">
+    <p class="bot-sig">This notice was generated automatically by <strong>ClueBot NG IV</strong> (Verification Module v3.2.1) on behalf of the <a href="#">Source Accountability &amp; Integrity Task Force</a>.</p>
+    <p>Reviewing administrator: <a href="#">User:VerifiCat_9000</a> · <a href="#">talk</a> · <a href="#">contribs</a></p>
+    <p class="timestamp">01 April 2026, 06:31:07 UTC</p>
+  </div>
+
+  <!-- Categories -->
+  <div class="wiki-categories">
+    Categories: <a href="#">Source verification requests</a> · <a href="#">BLP/E compliance cases</a> · <a href="#">WikiProject Cats</a> · <a href="#">Articles with unverified quotations</a> · <a href="#">Amber-level SVRs (April 2026)</a> · <a href="#">Interspecies kinship disputes</a>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<div class="wiki-footer">
+  Content is available under <a href="#">Creative Commons Attribution-ShareAlike 4.0</a> unless otherwise noted. · <a href="#">Privacy policy</a> · <a href="#">About Wikipedia</a> · <a href="#">Disclaimers</a>
+</div>
+
+</body>
+</html>
